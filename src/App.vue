@@ -1,4 +1,9 @@
 <script setup>
+    import Navbar from '@/components/Navbar.vue';
 </script>
 
-<template></template>
+<template>
+    <div class="h-screen dark:bg-darkbg flex flex-col-reverse sm:flex-col">
+    <Navbar />
+    </div>
+</template>
