@@ -17,6 +17,13 @@ export default defineConfig({
     },
   },
   server: {
-      port: 3000
+      port: 3000,
+      proxy: {
+	  "/api": {
+	      target: "https://mds.bird.co/gbfs/v2/public/new-york/free_bike_status.json" ,
+	      changeOrigin: true,
+	      rewrite: (path) => path.replace(/^\/api/, '')
+	  }
+      }
   }
 })
