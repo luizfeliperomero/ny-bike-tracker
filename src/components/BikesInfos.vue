@@ -10,6 +10,7 @@
 </script>
 <template>
     <div class="flex p-5 justify-center flex-wrap gap-10">
+	<div class="flex justify-center gap-10">
 	<BikesInfo 
 	    label="Total" 
 	    :value="bikes.length"
@@ -22,6 +23,8 @@
 	    valueColor="text-green-700 dark:text-green-500"
 	    valueBg="bg-[#DAFDD3] dark:bg-transparent"
 	/>
+	</div>
+	<div class="flex justify-center gap-10">
 	<BikesInfo 
 	    label="Reserved" 
 	    :value="reservedBikes.length"
@@ -36,5 +39,6 @@
 	    valueColor="text-gray-400"
 	    valueBg="bg-gray-100 dark:bg-transparent"
 	/>
+	</div>
     </div>
 </template>
