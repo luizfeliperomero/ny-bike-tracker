@@ -17,7 +17,7 @@
     const toggleIcon = computed(() => (isDark.value ? toggleDark : toggleLight))
 </script>
 <template>
-    <nav class="flex p-2 justify-between items-center bg-primary w-full">
+    <nav class="flex p-2 justify-between items-center bg-bt-primary w-full">
 	<img class="h-20" :src="logo" alt="Bike Tracker" />
 	<img class="h-6 cursor-pointer" :src="toggleIcon" alt="Bike Tracker" @click="toggleDarkMode"/>
     </nav>
