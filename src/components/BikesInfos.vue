@@ -9,7 +9,7 @@
     });
 </script>
 <template>
-    <div class="flex p-5 justify-center flex-wrap gap-10">
+    <div class="flex p-5 justify-center flex-wrap gap-10 dark:bg-bt-primary">
 	<div class="flex justify-center gap-10">
 	<BikesInfo 
 	    label="Total" 

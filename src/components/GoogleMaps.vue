@@ -73,7 +73,7 @@
 	  }"
 	  >
 	    <InfoWindow>
-	      <div class="w-4xs flex flex-col justify-center items-center gap-3">
+	      <div class="text-black w-full h-full flex flex-col justify-center items-center gap-3">
 		  <span :class="['font-bold', bikeStatusTextColor(bikeStatus(bike))]">{{ bikeStatus(bike) }}</span>
 		      <Progress :color="batteryLevelColor(bike.current_fuel_percent)" :model-value="bike.current_fuel_percent * 100" />
 			  <p class="font-medium">{{ formatRange(bike.current_range_meters) }} km</p>
