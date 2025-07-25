@@ -3,15 +3,21 @@
 @import 'primeicons/primeicons.css';
 
 
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --color-bt-primary: #0b1928;
+    --color-bt-secondary: #2892ff;
     --color-bt-darkbg: #050E17;
     --color-bt-available: #15803d; 
     --color-bt-reserved: #facc15;
     --color-bt-unavailable: #9ca3af;
+}
+
+@layer base {
+    Button {
+	cursor: pointer;
+    }
 }
 
 @theme inline {

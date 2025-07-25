@@ -48,7 +48,6 @@
       const rounded = km.toFixed(1);
       return rounded.endsWith('.0') ? parseInt(rounded) : rounded;
     }
-
 </script>
 <template>
   <GoogleMap
@@ -62,6 +61,7 @@
 	  <AdvancedMarker
 	    v-for="bike in bikes"
 	    :key="bike.bike_id"
+	    v-memo="[bike.bike_id]"
 	    :options="{
 	      position: { lat: bike.lat, lng: bike.lon },
 	      title: bikeStatus(bike) 
