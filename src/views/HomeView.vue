@@ -10,7 +10,7 @@
     let availableBikes = ref([]);
     let reservedBikes = ref([]);
     let disabledBikes = ref([]);
-    let isLoading = ref(false);
+    let isLoading = ref(true);
 
     const getData = () => {
 	isLoading.value = true;
