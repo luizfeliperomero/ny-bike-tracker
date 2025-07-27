@@ -10,7 +10,7 @@
 		</div>
 		<div class="border-l-gray-300 dark:border-l-gray-600 border-l-2 h-40"></div>
 		<div class="flex flex-col items-center gap-2">
-		    <Button class="self-center dark:bg-green-400 cursor-pointer">See Users Data</Button>
+		    <Button @click="$router.push('/usersTable')" class="self-center dark:bg-green-400 cursor-pointer">See Users Data</Button>
 		</div>
 	    </div>
 	</div>

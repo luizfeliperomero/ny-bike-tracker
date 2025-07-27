@@ -3,12 +3,16 @@ import HomeView from '@/views/HomeView.vue';
 import AdminPanelView from '@/views/AdminPanelView.vue';
 import BikesTableView from '@/views/BikesTableView.vue';
 import AuthView from '@/views/AuthView.vue';
-import { store } from '@/shared/store.vue';
-import axios from 'axios';
+import UsersTableView from '@/views/UsersTableView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
+	{
+	    path: '/authView',
+	    name: 'authView',
+	    component: AuthView 
+	},
 	{
 	    path: '/',
 	    name: 'home',
@@ -28,9 +32,10 @@ const router = createRouter({
 	    meta: { requiresAuth: true, roles: ['admin'] }
 	},
 	{
-	    path: '/authView',
-	    name: 'authView',
-	    component: AuthView 
+	    path: '/usersTable',
+	    name: 'usersTable',
+	    component: UsersTableView,
+	    meta: { requiresAuth: true, roles: ['admin'] }
 	}
     ]
 });
