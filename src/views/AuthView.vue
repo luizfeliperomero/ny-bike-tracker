@@ -39,14 +39,20 @@
 	if(isLogin.value) {
 	   axios.post("http://192.168.1.112:8083/api/auth", value).then((res) => {
 	      localStorage.token = res.data.token;
+	      localStorage.authenticated = true;
 	      store.authenticated = true;
+	      store.role = res.data.role;
+	      localStorage.role = res.data.role;
 	      router.push("/");
 	   }, (err) => {
+	      localStorage.authenticated = false;
 	      store.authenticated = false;
 	      authError.value = true; 
 	   });
 	} else {
 	   axios.post("http://192.168.1.112:8083/api/auth/register", value).then((res) => {
+	      password.value = "";
+	      email.value = "";
 	      isLogin.value = true;
 	   }, (err) => {
 	      if(err.status === 409) {
@@ -57,14 +63,14 @@
     }
 </script>
 <template>
-    <div class="h-full w-full px-20 py-5">
-	<div class="flex w-full h-full border-2 border-gray-200 rounded-md">
-	    <div class="flex flex-col justify-between py-10 px-5 w-full rounded-md h-full bg-bt-primary">
-		<img class="h-30 w-30" :src="logo" alt="Bike Tracker" />
-		<h1 class="text-white font-medium text-5xl">Discover New York’s Electric Ride: Explore E-Bike Data!</h1>
+    <div class="h-full w-full md:px-20 md:py-5">
+	<div class="flex flex-col w-full h-full ring-2 ring-gray-200 rounded-md md:flex-row ">
+	    <div class="flex flex-col justify-between px-5 py-2 w-full rounded-md h-full bg-bt-primary">
+		<img class="h-20 w-20 md:h-30 md:w-30" :src="logo" alt="Bike Tracker" />
+		<h1 class="text-white font-medium text-2xl md:text-4xl lg:text-5xl">Discover New York’s Electric Ride: Explore E-Bike Data!</h1>
 		<p class="text-white">Data is provided by Bird's system</p>
 	    </div>
-	    <div class="flex flex-col w-full h-full py-10 px-5">
+	    <div class="flex flex-col w-full h-full p-5">
 		<div class="flex justify-end w-full">
 		    <Button v-if="!isLogin" @click="isLogin = true" variant="outline">Login</Button>
 		    <Button v-else @click="isLogin = false" variant="outline">Register</Button>

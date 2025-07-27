@@ -13,11 +13,15 @@
 	    headers: {
 		Authorization: `Bearer ${localStorage.token}`
 	    }
-	}).then(() => {
+	}).then((res) => {
+	    localStorage.role = res.data.role;
+	    store.role = res.data.role;
 	    store.authenticated = true;
-	    router.push("/");
+	    localStorage.authenticated = true;
 	}, () => {
 	    store.authenticated = false;
+	    localStorage.authenticated = false;
+	    localStorage.role = "";
 	    router.push("/authView");
 	})
     });

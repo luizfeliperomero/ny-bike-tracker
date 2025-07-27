@@ -4,6 +4,7 @@
     import toggleDark from '@/assets/svg/toggle-dark.svg';
     import { ref, computed, onMounted } from 'vue'
     import { RouterLink, useRoute } from 'vue-router';
+    import { store } from '@/shared/store.vue'
 
     const isDark = ref(false);
 
@@ -28,7 +29,7 @@
 	<img class="h-20" :src="logo" alt="Bike Tracker" />
 	<div class="flex justify-center items-center gap-10">
 	    <RouterLink to="/" :class="['-white font-medium hover:text-bt-secondary', isActiveLink('/') ? 'text-bt-secondary': 'text-white']">Home</RouterLink>
-	    <RouterLink to="/adminPanel" :class="['font-medium hover:text-bt-secondary', isActiveLink('/adminPanel') ? 'text-bt-secondary': 'text-white']">Admin Panel</RouterLink>
+	    <RouterLink v-if="store.role === 'admin'" to="/adminPanel" :class="['font-medium hover:text-bt-secondary', isActiveLink('/adminPanel') ? 'text-bt-secondary': 'text-white']">Admin Panel</RouterLink>
 	</div>
 	<img class="h-6 cursor-pointer" :src="toggleIcon" alt="Bike Tracker" @click="toggleDarkMode"/>
     </nav>
