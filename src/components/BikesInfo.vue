@@ -17,7 +17,7 @@
     });
 </script>
 <template>
-    <div class="flex flex-col gap-2 items-center justify-center">
+    <div class="cursor-pointer p-1 hover:ring-2 hover:ring-green-500 flex flex-col gap-2 items-center justify-center">
 	<h1 :class="['text-md', labelColor]">{{ label }}</h1>
 	<div :class="['flex justify-center items-center w-30 h-20 p-3 text-4xl font-bold', valueBg, valueColor]">{{ value }}</div>
     </div>

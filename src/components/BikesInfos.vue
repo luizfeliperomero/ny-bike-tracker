@@ -1,7 +1,9 @@
 <script setup>
     import BikesInfo from '@/components/BikesInfo.vue';
+    import { ref } from 'vue';
 
     const emit = defineEmits(['updateMaps']);
+    const selectedLabel = ref(null)
 
     const updateMaps = (arr) => {
 	emit('updateMaps', arr);
@@ -18,13 +20,15 @@
     <div class="flex p-5 justify-center flex-wrap gap-10 dark:bg-bt-primary">
 	<div class="flex justify-center gap-10">
 	<BikesInfo 
-	    @click="updateMaps(bikes)"
+	    :class="selectedLabel === 'Total' ? 'border-2 border-green-500' : ''"
+	     @click="() => { selectedLabel = 'Total'; updateMaps(bikes); }"
 	    label="Total" 
 	    :value="bikes.length"
 	    valueBg="bg-[#D1E3FB] dark:bg-transparent"
 	/>
 	<BikesInfo 
-	    @click="updateMaps(availableBikes)"
+	    :class="selectedLabel === 'Available' ? 'border-2 border-green-500' : ''"
+	     @click="() => { selectedLabel = 'Available'; updateMaps(availableBikes); }"
 	    label="Available" 
 	    :value="availableBikes.length"
 	    labelColor="dark:text-green-500"
@@ -34,7 +38,8 @@
 	</div>
 	<div class="flex justify-center gap-10">
 	<BikesInfo 
-	    @click="updateMaps(reservedBikes)"
+	    :class="selectedLabel === 'Reserved' ? 'border-2 border-green-500' : ''"
+	     @click="() => { selectedLabel = 'Reserved'; updateMaps(reservedBikes); }"
 	    label="Reserved" 
 	    :value="reservedBikes.length"
 	    labelColor="dark:text-yellow-400"
@@ -42,7 +47,8 @@
 	    valueBg="bg-[#FFFCE0] dark:bg-transparent"
 	/>
 	<BikesInfo 
-	    @click="updateMaps(disabledBikes)"
+	    :class="selectedLabel === 'Unavailable' ? 'border-2 border-green-500' : ''"
+	     @click="() => { selectedLabel = 'Disabled'; updateMaps(disabledBikes); }"
 	    label="Unavailable" 
 	    :value="disabledBikes.length"
 	    labelColor="dark:text-gray-400"

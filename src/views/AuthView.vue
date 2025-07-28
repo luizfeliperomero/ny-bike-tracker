@@ -37,7 +37,7 @@
     });
     const onSubmit = (value) => {
 	if(isLogin.value) {
-	   axios.post("http://192.168.1.112:8083/api/auth", value).then((res) => {
+	   axios.post("/authApi/auth", value).then((res) => {
 	      localStorage.token = res.data.token;
 	      localStorage.authenticated = true;
 	      store.authenticated = true;
@@ -50,7 +50,7 @@
 	      authError.value = true; 
 	   });
 	} else {
-	   axios.post("http://192.168.1.112:8083/api/auth/register", value).then((res) => {
+	   axios.post("/authApi/auth/register", value).then((res) => {
 	      password.value = "";
 	      email.value = "";
 	      isLogin.value = true;

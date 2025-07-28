@@ -9,7 +9,7 @@
     const router = useRouter();
 
     onMounted(() => {
-	axios.get("http://192.168.1.112:8083/api/user", {
+	axios.get("/authApi/user", {
 	    headers: {
 		Authorization: `Bearer ${localStorage.token}`
 	    }

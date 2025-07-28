@@ -22,7 +22,12 @@ export default defineConfig({
 	      target: "https://mds.bird.co/gbfs/v2/public/new-york/free_bike_status.json" ,
 	      changeOrigin: true,
 	      rewrite: (path) => path.replace(/^\/api/, '')
-	  }
+	  },
+	  "/authApi": {
+	      target: "http://192.168.1.112:8083/api" ,
+	      changeOrigin: true,
+	      rewrite: (path) => path.replace(/^\/authApi/, '')
+	  },
       }
   }
 })

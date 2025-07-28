@@ -1,16 +1,19 @@
 <script setup>
     import { GoogleMap, AdvancedMarker, MarkerCluster, InfoWindow } from 'vue3-google-map';
     import { Progress } from '@/components/ui/progress';
+    import { watch } from 'vue';
 
     const center = { lat: 40.7128, lng: -74.0060 };
     const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
 
-    defineProps({
+    const { bikes } = defineProps({
 	bikes: Array
     });
+
     const getPinColor = (bike) => {
 	return bike.is_disabled || bike.fuel_percent === 0 ? '#E0E0E0' : (bike.is_reserved ? '#FFFFED' : '#90EE90');
     }
+
     const bikeStatus = (bike) => {
       if (bike.is_disabled || bike.fuel_percent === 0) return 'Unavailable';
       if (bike.is_reserved) return 'Reserved';
